@@ -4,8 +4,8 @@ $(function () {
     var form = {
         getFormData: function () {
             return {
-                username: $.trim($username.val()),
-                password: $.trim($password.val())
+                login_name: $.trim($username.val()),
+                login_pwd: $.trim($password.val())
             }
         },
         events: function () {
@@ -34,7 +34,7 @@ $(function () {
                             if (+resp.code === 1) {
                                 window.location = '/index';              
                             } else {
-                                self.showMsg($('#fromMsg'), '用户名或密码错误');
+                                self.showMsg($('#fromMsg'), resp.msg);
                             }
                         }
                     });
