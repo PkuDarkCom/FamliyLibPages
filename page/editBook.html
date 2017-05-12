@@ -225,7 +225,6 @@
 			};
 			var bookTemplate = Handlebars.compile($("#bookTemplate").html());
 			$('#bookInfo').attr('data-id', resp.data.bookId).html(bookTemplate(resp.data));
-			return false;
 			/* 这行注释之前的代码在联调时要注释 */
 			var $bookInfo = $('#bookInfo');
 			// 提交
@@ -319,7 +318,7 @@
 			        success: function (resp) {
 			            if (+resp.code === 1) {
 							var bookTemplate = Handlebars.compile($("#bookTemplate").html());
-							$bookInfo.html(bookTemplate(resp.data)).data('id', resp.data.bookId);
+							$bookInfo.attr('data-id', resp.data.bookId).html(bookTemplate(resp.data));
 			            }
 			        }
 			    });
