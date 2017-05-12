@@ -2,31 +2,32 @@ $(document).ready(function ($) {
 	/* 公用事件处理 */
 	var request = {
 		// 获取书架列表
-		getShelf: function () {
-	        // var resp = {
-	        //     "code": 1,
-	        //     "msg": "查询成功",
-	        //     "data": [
-	        //         {
-	        //             "shelfType": "01",
-	        //             "shelfName": "书房"
-	        //         },
-	        //         {
-	        //             "shelfType": "02",
-	        //             "shelfName": "客厅"
-	        //         },
-	        //         {
-	        //             "shelfType": "03",
-	        //             "shelfName": "卧室"
-	        //         }
-	        //     ]
-	        // };
-	        // var options = '<option value="">按书架选择</option>';
-	        // for (var i = 0; i < resp.data.length; i++) {
-	        //     options += '<option value="' + resp.data[i].shelfType + '">' + resp.data[i].shelfName + '</option>';
-	        // }
-	        // $('#shelf-select').html(options);
-	        // return false;
+		getShelf: function (defaultOption) {
+	        var resp = {
+	            "code": 1,
+	            "msg": "查询成功",
+	            "data": [
+	                {
+	                    "shelfType": "01",
+	                    "shelfName": "书房"
+	                },
+	                {
+	                    "shelfType": "02",
+	                    "shelfName": "客厅"
+	                },
+	                {
+	                    "shelfType": "03",
+	                    "shelfName": "卧室"
+	                }
+	            ]
+	        };
+	        var defaultOption = defaultOption || '按书架选择';
+	        var options = '<option value="">' + defaultOption + '</option>';
+	        for (var i = 0; i < resp.data.length; i++) {
+	            options += '<option value="' + resp.data[i].shelfType + '">' + resp.data[i].shelfName + '</option>';
+	        }
+	        $('#shelf-select').html(options);
+	        return false;
 	        
 	        $.ajax({
 	            url: '/book/bookShelfList',
