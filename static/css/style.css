@@ -28,3 +28,7 @@
 .txt-center {
 	text-align: center;
 }
+.btn-addshelf {
+	color: #333;
+	cursor: pointer;
+}
