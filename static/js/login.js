@@ -9,13 +9,6 @@ $(function () {
                 loginName: $.trim($username.val()),
                 loginPwd: $.trim($password.val())
             };
-            if (type === 'login') {
-                data = {
-                    userName: $.trim($username.val()),
-                    password: $.trim($password.val()),
-                    confirmPwd: $.trim($confirmPwd.val())
-                };
-            }
             return data;
         },
         events: function () {
